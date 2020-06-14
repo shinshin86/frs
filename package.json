@@ -1,0 +1,38 @@
+{
+  "name": "frs",
+  "version": "0.0.1",
+  "description": "npm library for file recursive search",
+  "main": "main.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "fmt": "prettier --write '**/*.{js,json,md}'"
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shinshin86/frs.git"
+  },
+  "keywords": [
+    "file",
+    "recursive",
+    "search"
+  ],
+  "author": "shinshin86 <shinshin86npm@gmail.com> (https://github.com/shinshin86)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shinshin86/frs/issues"
+  },
+  "homepage": "https://github.com/shinshin86/frs#readme",
+  "devDependencies": {
+    "mocha": "^8.0.1",
+    "prettier": "^2.0.5"
+  },
+  "engines": {
+    "node": ">=10.x"
+  }
+}
