@@ -3,10 +3,19 @@ const path = require('path');
 
 const getAbsolutePathList = async (targetPath) => {
   const fileList = [];
-  return await search(targetPath, fileList, getAbsolutePathList);
+  const fileNameOnly = false;
+  return await search(targetPath, fileList, getAbsolutePathList, fileNameOnly);
 };
 
-const search = async (targetPath, fileList, searchFunc) => {
+const getFileNameList = async (targetPath) => {
+  const fileList = [];
+  const fileNameOnly = true;
+  return await search(targetPath, fileList, getFileNameList, fileNameOnly);
+};
+
+const search = async (targetPath, fileList, searchFunc, fileNameOnly) => {
+  const getFilePathText = fileNameOnly ? path.basename : (filepath) => filepath;
+
   const files = await fs.readdir(targetPath);
   for (const f of files) {
     const filePath = path.join(targetPath, f);
@@ -17,7 +26,7 @@ const search = async (targetPath, fileList, searchFunc) => {
       const resultList = await searchFunc(searchPath, fileList);
       fileList = fileList.concat(resultList);
     } else {
-      fileList.push(filePath);
+      fileList.push(getFilePathText(filePath));
     }
   }
 
@@ -26,4 +35,5 @@ const search = async (targetPath, fileList, searchFunc) => {
 
 module.exports = {
   getAbsolutePathList,
+  getFileNameList,
 };
