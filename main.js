@@ -2,15 +2,28 @@ const fs = require('fs').promises;
 const path = require('path');
 
 const getAbsolutePathList = async (targetPath) => {
+  const isValidPath = await isDirecotryPath(targetPath);
+  if (!isValidPath) throw new Error('Invalid directory path');
+
   const fileList = [];
   const fileNameOnly = false;
   return await search(targetPath, fileList, getAbsolutePathList, fileNameOnly);
 };
 
 const getFileNameList = async (targetPath) => {
+  const isValidPath = await isDirecotryPath(targetPath);
+  if (!isValidPath) throw new Error('Invalid directory path');
+
   const fileList = [];
   const fileNameOnly = true;
   return await search(targetPath, fileList, getFileNameList, fileNameOnly);
+};
+
+const isDirecotryPath = async (path) => {
+  if (!path) return false;
+
+  const stats = await fs.stat(path);
+  return stats.isDirectory();
 };
 
 const search = async (targetPath, fileList, searchFunc, fileNameOnly) => {
