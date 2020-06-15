@@ -1,5 +1,7 @@
 # frs
 
+![frs logo image](./images/frs_logo.png)
+
 npm library for file recursive search
 
 (This repository is a WIP)
