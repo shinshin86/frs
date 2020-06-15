@@ -8,7 +8,56 @@ npm library for file recursive search
 
 ## Usage
 
-TODO
+Both functions return Promise.
+
+```javascript
+const { getAbsolutePathList, getFileNameList } = require('frs');
+
+(async () => {
+  const absolutePathList = await getAbsolutePathList('./testdata');
+  console.log({ absolutePathList });
+
+  const fileNameList = await getFileNameList('./testdata');
+  console.log({ fileNameList });
+})();
+```
+
+↓
+
+```bash
+{
+  absolutePathList: [
+    'testdata/dir1/dir2/test2.txt',
+    'testdata/dir1/dir2/test6.txt',
+    'testdata/dir1/dir3/dir4/dir5/dir6/test8.txt',
+    'testdata/dir1/dir3/dir4/dir5/dir6/test9.txt',
+    'testdata/dir1/dir3/dir4/dir5/test7.txt',
+    'testdata/dir1/dir3/dir4/test5.txt',
+    'testdata/dir1/dir3/test3.txt',
+    'testdata/dir1/dir3/test4.txt',
+    'testdata/dir1/test1.txt'
+  ]
+}
+{
+  fileNameList: [
+    'test2.txt', 'test6.txt',
+    'test8.txt', 'test9.txt',
+    'test7.txt', 'test5.txt',
+    'test3.txt', 'test4.txt',
+    'test1.txt'
+  ]
+}
+```
+
+## Install
+
+I have not publish it to npm yet.
+
+```bash
+npm install shinshin86/frs
+# or
+yarn add shinshin86/frs
+```
 
 ## Command
 
