@@ -53,12 +53,10 @@ const { getAbsolutePathList, getFileNameList } = require('frs');
 
 ## Install
 
-I have not publish it to npm yet.
-
 ```bash
-npm install shinshin86/frs
+npm install frs
 # or
-yarn add shinshin86/frs
+yarn add frs
 ```
 
 ## Command
