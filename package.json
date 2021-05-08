@@ -1,6 +1,6 @@
 {
   "name": "frs",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "npm library for file recursive search",
   "main": "main.js",
   "directories": {
